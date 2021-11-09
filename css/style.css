@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: cadetblue;
+}
+
+/* .container {
+  
+    
+} */
+
+#numeri {
+    background-color: turquoise;
+    border: 3px solid white;
+    width: 100px;
+}

@@ -13,10 +13,14 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 let numeriRandom = [];
 
-for ( let i = 0; numeriRandom.length < 5; i++) {
+const containerNumeri = document.getElementById("numeri-pc");
+const numeriUt = document.getElementById("numeri-utente");
+
+for ( let i = 0; i < 5; i++) {
     let randNum = Math.floor(Math.random() * 99) + 1;
     if (numeriRandom.includes(randNum) == false) { 
         numeriRandom.push(randNum);
+        containerNumeri.innerHTML += randNum + ",";
     }
 }
 console.log(numeriRandom);
@@ -24,10 +28,20 @@ console.log(numeriRandom);
 
 let numeriUtente = [];
 
-setTimeout (prompt, 3000)
+setTimeout(promptUtente, 3000)
 
-function prompt(){
+function promptUtente(){
 
-    const numeroUtente = parseInt(prompt("scrivi un numero che hai visto in precendeza"));
-    console.log()
+    for ( let i = 0; i < 5; i++){
+        const numero = prompt("scrivi un numero che hai visto in precendeza");
+        numeriUtente.push(numero);
+    }
+    numeriUtente.forEach((element) => {
+    
+        if(numeriRandom.includes(element)) {
+            numeriUt.innerHTML += `hai indovinato ${element}`; 
+        }
+    });
 }
+
+console.log(numeriUtente)
