@@ -19,5 +19,15 @@ for ( let i = 0; numeriRandom.length < 5; i++) {
         numeriRandom.push(randNum);
     }
 }
-
 console.log(numeriRandom);
+
+
+let numeriUtente = [];
+
+setTimeout (prompt, 3000)
+
+function prompt(){
+
+    const numeroUtente = parseInt(prompt("scrivi un numero che hai visto in precendeza"));
+    console.log()
+}
