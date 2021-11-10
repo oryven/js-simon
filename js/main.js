@@ -17,7 +17,7 @@ const containerNumeri = document.getElementById("numeri-pc");
 let numeriUser = document.getElementById("numeri-utente");
 
 for ( let i = 0; i < 5; i++) {
-    let randNum = Math.floor(Math.random() * 99) + 1;
+    let randNum = Math.floor(Math.random() * 100) + 1;
     if (numeriRandom.includes(randNum) === false) { 
         numeriRandom.push(randNum);
         containerNumeri.innerHTML += randNum + ",";
@@ -28,35 +28,36 @@ console.log(numeriRandom);
 
 let numeriUtente = [];
 
+setTimeout(promptUtente, 3000);
+
+function promptUtente(){
+
+    for ( let i = 0; i < 5; i++){
+        const numero = parseInt(prompt("scrivi un numero che hai visto in precendeza"));
+        numeriUtente.push(numero);
+    } 
+    numeriUtente.forEach((element) => {
+    
+        if(numeriRandom.includes(element)) {
+            numeriUser.innerHTML += element + ","; 
+        }
+    });
+}
+console.log(numeriUtente)
+
+
+
+
 // setTimeout(promptUtente, 3000)
 
 // function promptUtente(){
+//     for (let i = 0; i < 5; i++){
+//         const numRichiesto = parseInt(prompt("scrivi un numero che hai visto in precendeza"));
 
-//     for ( let i = 0; i < 5; i++){
-//         const numero = prompt("scrivi un numero che hai visto in precendeza");
-//         numeriUtente.push(numero);
-//     } 
-// }
-// console.log(numeriUtente)
+//         if (numeriRandom.includes(numRichiesto)){
+//             numeriUtente.push(numRichiesto);
 
-// numeriUtente.forEach((element) => {
-    
-//     if(numeriRandom.includes(element) === true) {
-//         numeriUt.innerHTML += element + ","; 
+//             numeriUser.innerHTML += numRichiesto + ",";
+//         };
 //     }
-// });
-
-
-setTimeout(promptUtente, 3000)
-
-function promptUtente(){
-    for (let i = 0; i < 5; i++){
-        const numRichiesto = parseInt(prompt("scrivi un numero che hai visto in precendeza"));
-
-        if (numRichiesto === numeriRandom[i]){
-            numeriUtente.push(numRichiesto);
-
-            numeriUser.innerHTML += numRichiesto + ",";
-        };
-    }
-}
+// }
