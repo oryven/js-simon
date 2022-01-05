@@ -13,14 +13,18 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 let numeriRandom = [];
 
-const containerNumeri = document.getElementById("numeri-pc");
+let containerNumeri = document.querySelector('.numeri-pc');
 let numeriUser = document.getElementById("numeri-utente");
 
 for ( let i = 0; i < 5; i++) {
     let randNum = Math.floor(Math.random() * 100) + 1;
     if (numeriRandom.includes(randNum) === false) { 
         numeriRandom.push(randNum);
-        containerNumeri.innerHTML += randNum + ",";
+        console.log(randNum);
+        containerNumeri.innerHTML += String(numeriRandom[i]) ;
+        if (i < 4) {
+            containerNumeri.innerHTML += " - "
+        }
     }
 }
 console.log(numeriRandom);
@@ -28,7 +32,12 @@ console.log(numeriRandom);
 
 let numeriUtente = [];
 
-setTimeout(promptUtente, 3000);
+setTimeout(promptUtente, 3000,);
+
+setTimeout(addClass, 2000);
+function addClass(){
+    containerNumeri.classList.add("none")
+}
 
 function promptUtente(){
 
@@ -36,13 +45,18 @@ function promptUtente(){
         const numero = parseInt(prompt("scrivi un numero che hai visto in precendeza"));
         numeriUtente.push(numero);
     } 
-    numeriUtente.forEach((element) => {
+    numeriUtente.forEach(function (numero, index) {
     
-        if(numeriRandom.includes(element)) {
-            numeriUser.innerHTML += element + ","; 
+        if(numeriRandom.includes(numero)) {
+            numeriUser.innerHTML += numero; 
+        }
+        if (index < 4) {
+            numeriUser.innerHTML += " - "
         }
     });
 }
+
+
 console.log(numeriUtente)
 
 
